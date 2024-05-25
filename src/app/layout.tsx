@@ -19,14 +19,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-    
-      <body style={{backgroundColor:"#000"}}  className={inter.className}>
-        
-          <div>
-            <Header />
-            {children}
-            <Footer />
-          </div>
+      <body style={{ backgroundColor: "#fff", color: "#000" }} className={inter.className}>
+        <div>
+          <Header />
+          {children}
+          <Footer />
+        </div>
       </body>
     </html>
   );
