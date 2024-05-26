@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 :root {
   --foreground-rgb: 0, 0, 0; /* Text color black */
   --background-start-rgb: 255, 255, 255; /* Background color white */
@@ -26,4 +25,32 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+/* Header */
+.active-red {
+  color: rgb(252, 83, 216);
+}
+.Header-Body {
+  height: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+    to left,
+    rgb(168, 239, 246),
+    rgb(228, 246, 255),
+    #fff
+  );
+
+  border-bottom: 1px solid #fff;
+}
+
+.Header-Box {
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: 0.5s;
 }
