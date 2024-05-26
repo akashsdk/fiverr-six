@@ -28,7 +28,7 @@ body {
 }
 /* Header */
 .active-red {
-  color: rgb(252, 83, 216);
+  color: green;
 }
 .Header-Body {
   height: auto;

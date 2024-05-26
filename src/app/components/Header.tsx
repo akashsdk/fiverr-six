@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { UserIcon } from "@heroicons/react/24/outline";
 import { Button, Drawer, Radio, Space } from "antd";
+import Image from "next/image";
 import {
   MenuOutlined,
   ShoppingCartOutlined,
   CloseOutlined,
 } from "@ant-design/icons";
 import Navlink from "./Navlink";
+
+import Img1 from "../../Data/Img/2022-12-03 11.29.30 (1).jpg";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -38,25 +41,25 @@ export default function Header() {
           <div className="hidden md:flex md:justify-end md:items-center">
             <Navlink
               activeClasses="active-red"
-              className="mr-5 text-[20px] font-bold uppercase"
+              className="mr-5 text-[20px] font-bold uppercase hover:text-green-700"
               href="/"
               text="Home"
             />
             <Navlink
               activeClasses="active-red"
-              className="mr-5 text-[20px] font-bold uppercase"
+              className="mr-5 text-[20px] font-bold hover:text-green-700 uppercase"
               href="/about"
               text="About"
             />
             <Navlink
               activeClasses="active-red"
-              className="mr-5 text-[20px] font-bold uppercase"
+              className="mr-5 text-[20px] font-bold uppercase hover:text-green-700"
               href="/shop"
               text="Shop"
             />
             <Navlink
               activeClasses="active-red"
-              className="mr-5 text-[20px] font-bold uppercase"
+              className="mr-5 text-[20px] font-bold uppercase hover:text-green-700"
               href="/contact"
               text="Contact"
             />
@@ -92,7 +95,11 @@ export default function Header() {
           </div>
         </div>
         <Drawer
-          title="Shopping Cart"
+          title={
+            <div className="flex justify-between items-center">
+              <p className="text-[20px] text-green-700">Shopping Cart</p>
+            </div>
+          }
           placement="right"
           width={500}
           onClose={onCloseDrawer}
@@ -106,9 +113,47 @@ export default function Header() {
             </Space>
           }
         >
-          <p>Some contents...</p>
-          <p>Some contents...</p>
-          <p>Some contents...</p>
+          <div className="w-full">
+            <div className="w-full h-[75px] flex justify-between items-center">
+              <div className="flex">
+                <Image alt="Product" className="h-[60px] w-[60px]" src={Img1} />
+
+                <div className="h-[60px] ml-4 flex-col justify-center items-center">
+                  <p className="text-[20px] text-green-500">Product Name</p>
+                  <p className="text-[16px] ">$14.50</p>
+                </div>
+              </div>
+
+              <div className="flex ">
+                <div className="h-[35px] w-[80px] flex justify-around items-center">
+                  <CloseOutlined className="text-[20px]" />
+                  <p className="text-[20px]">10</p>
+                  <CloseOutlined className="text-[20px]" />
+                </div>
+                <CloseOutlined className="text-[20px] ml-5 text-red-600" />
+              </div>
+            </div>
+
+            <div className="w-full h-[75px]  flex justify-between items-center">
+              <div className="flex">
+                <Image alt="Product" className="h-[60px] w-[60px]" src={Img1} />
+
+                <div className="h-[60px] ml-4 flex-col justify-center items-center">
+                  <p className="text-[20px] text-green-500">Product Name 2</p>
+                  <p className="text-[16px] ">$10.50</p>
+                </div>
+              </div>
+
+              <div className="flex ">
+                <div className="h-[35px] w-[80px] flex justify-around items-center">
+                  <CloseOutlined className="text-[20px]" />
+                  <p className="text-[20px]">10</p>
+                  <CloseOutlined className="text-[20px]" />
+                </div>
+                <CloseOutlined className="text-[20px] ml-5 text-red-600" />
+              </div>
+            </div>
+          </div>
         </Drawer>
       </div>
       {isMenuOpen && (
@@ -116,31 +161,31 @@ export default function Header() {
           <div className="w-11/12 flex flex-col justify-center items-center">
             <Navlink
               activeClasses="active-red"
-              className="h-[40px] w-full flex justify-start items-center text-[20px] font-bold uppercase border-b border-black-500"
+              className="h-[40px] w-full flex justify-start items-center text-[20px] font-bold uppercase border-b border-black-500 hover:text-green-700"
               href="/"
               text="Home"
             />
             <Navlink
               activeClasses="active-red"
-              className="h-[40px] w-full flex justify-start items-center text-[20px] font-bold uppercase border-b border-black-500"
+              className="h-[40px] w-full flex justify-start items-center text-[20px] font-bold uppercase border-b border-black-500 hover:text-green-700"
               href="/about"
               text="About"
             />
             <Navlink
               activeClasses="active-red"
-              className="h-[40px] w-full flex justify-start items-center text-[20px] font-bold uppercase border-b border-black-500"
+              className="h-[40px] w-full flex justify-start items-center text-[20px] font-bold uppercase border-b border-black-500 hover:text-green-700"
               href="/shop"
               text="Shop"
             />
             <Navlink
               activeClasses="active-red"
-              className="h-[40px] w-full flex justify-start items-center text-[20px] font-bold uppercase border-b border-black-500"
+              className="h-[40px] w-full flex justify-start items-center text-[20px] font-bold uppercase border-b border-black-500 hover:text-green-700"
               href="/contact"
               text="Contact"
             />
             <Navlink
               activeClasses="active-red"
-              className="h-[40px] w-full flex justify-start items-center text-[20px] font-bold uppercase border-b border-black-500"
+              className="h-[40px] w-full flex justify-start items-center text-[20px] font-bold uppercase border-b border-black-500 hover:text-green-700"
               href="/profile"
               text="Profile"
             />
