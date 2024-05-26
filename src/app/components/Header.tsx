@@ -7,6 +7,9 @@ import {
   MenuOutlined,
   ShoppingCartOutlined,
   CloseOutlined,
+  PlusOutlined,
+  MinusOutlined,
+  DeleteOutlined,
 } from "@ant-design/icons";
 import Navlink from "./Navlink";
 
@@ -105,12 +108,9 @@ export default function Header() {
           onClose={onCloseDrawer}
           visible={isDrawerVisible}
           footer={
-            <Space>
-              <Button onClick={onCloseDrawer}>Cancel</Button>
-              <Button type="primary" onClick={onCloseDrawer}>
-                OK
-              </Button>
-            </Space>
+            <button className="h-[40px] w-full flex justify-center items-center bg-green-700 text-white text-[20px] font-bold hover:text-green-700 hover:bg-white">
+              CONTINUE SHOPPING
+            </button>
           }
         >
           <div className="w-full">
@@ -126,32 +126,17 @@ export default function Header() {
 
               <div className="flex ">
                 <div className="h-[35px] w-[80px] flex justify-around items-center">
-                  <CloseOutlined className="text-[20px]" />
+                  <MinusOutlined className="text-[20px]" />
                   <p className="text-[20px]">10</p>
-                  <CloseOutlined className="text-[20px]" />
+                  <PlusOutlined className="text-[20px]" />
                 </div>
-                <CloseOutlined className="text-[20px] ml-5 text-red-600" />
+                <DeleteOutlined className="text-[25px] ml-5 text-red-600" />
               </div>
             </div>
 
-            <div className="w-full h-[75px]  flex justify-between items-center">
-              <div className="flex">
-                <Image alt="Product" className="h-[60px] w-[60px]" src={Img1} />
-
-                <div className="h-[60px] ml-4 flex-col justify-center items-center">
-                  <p className="text-[20px] text-green-500">Product Name 2</p>
-                  <p className="text-[16px] ">$10.50</p>
-                </div>
-              </div>
-
-              <div className="flex ">
-                <div className="h-[35px] w-[80px] flex justify-around items-center">
-                  <CloseOutlined className="text-[20px]" />
-                  <p className="text-[20px]">10</p>
-                  <CloseOutlined className="text-[20px]" />
-                </div>
-                <CloseOutlined className="text-[20px] ml-5 text-red-600" />
-              </div>
+            <div className="mt-[30px] flex justify-between items-center">
+              <p className="text-[20px]">Total: (3)</p>
+              <p className="text-[20px] text-red-600">$ 41</p>
             </div>
           </div>
         </Drawer>
