@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
-import { UserIcon } from "@heroicons/react/24/outline";
-import { Button, Drawer, Radio, Space } from "antd";
+import { Drawer } from "antd";
 import Image from "next/image";
 import {
   MenuOutlined,
@@ -15,9 +14,23 @@ import Navlink from "./Navlink";
 
 import Img1 from "../../Data/Img/2022-12-03 11.29.30 (1).jpg";
 
+type CartItem = {
+  id: number;
+  name: string;
+  price: number;
+  quantity: number;
+  img: any;
+};
+
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDrawerVisible, setIsDrawerVisible] = useState(false);
+
+  const [cartItems, setCartItems] = useState<CartItem[]>([
+    { id: 1, name: "Product Name", price: 14.5, quantity: 10, img: Img1 },
+    { id: 2, name: "Product Name 2", price: 10.5, quantity: 1, img: Img1 },
+    { id: 3, name: "Product Name", price: 20.0, quantity: 1, img: Img1 },
+  ]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -30,6 +43,44 @@ export default function Header() {
   const onCloseDrawer = () => {
     setIsDrawerVisible(false);
   };
+
+  const increaseQuantity = (id: number) => {
+    setCartItems(
+      cartItems.map((item) =>
+        item.id === id && item.quantity < 10
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
+      )
+    );
+  };
+
+  const decreaseQuantity = (id: number) => {
+    setCartItems(
+      cartItems.map((item) =>
+        item.id === id && item.quantity > 1
+          ? { ...item, quantity: item.quantity - 1 }
+          : item
+      )
+    );
+  };
+
+  const deleteItem = (id: number) => {
+    setCartItems(cartItems.filter((item) => item.id !== id));
+  };
+
+  const totalItems = cartItems.reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
+  const totalPrice = cartItems.reduce(
+    (total, item) => total + item.price * item.quantity,
+    0
+  );
+
+  const handleCheckout = () => {
+    onCloseDrawer();
+  };
+
   return (
     <div className="w-full relative">
       <div className="Header-Body">
@@ -97,6 +148,7 @@ export default function Header() {
             </div>
           </div>
         </div>
+
         <Drawer
           title={
             <div className="flex justify-between items-center">
@@ -108,78 +160,61 @@ export default function Header() {
           onClose={onCloseDrawer}
           visible={isDrawerVisible}
           footer={
-            <button className="h-[40px] w-full flex justify-center items-center bg-green-700 text-white text-[20px] font-bold hover:text-green-700 hover:bg-white">
-              CONTINUE SHOPPING
-            </button>
+            <div onClick={handleCheckout} className="cursor-pointer">
+              <Navlink
+                activeClasses="active-red"
+                className="h-[40px] w-full flex justify-center items-center  text-[20px] font-bold text-green-700 hover:text-red-500 border-2 border-green-700 hover:border-red-500"
+                href="/checkout"
+                text="Checkout"
+              />
+            </div>
           }
         >
           <div className="w-full">
+            {cartItems.map((item) => (
+              <div
+                key={item.id}
+                className="w-full h-[75px] flex justify-between items-center border-b border-black-500"
+              >
+                <div className="flex">
+                  <Image
+                    alt="Product"
+                    className="h-[60px] w-[60px]"
+                    src={item.img}
+                  />
 
-            <div className="w-full h-[75px] flex justify-between items-center">
-              <div className="flex">
-                <Image alt="Product" className="h-[60px] w-[60px]" src={Img1} />
+                  <div className="h-[60px] ml-4 flex-col justify-center items-center">
+                    <p className="text-[20px] text-green-500">{item.name}</p>
+                    <p className="text-[16px] ">${item.price.toFixed(2)}</p>
+                  </div>
+                </div>
 
-                <div className="h-[60px] ml-4 flex-col justify-center items-center">
-                  <p className="text-[20px] text-green-500">Product Name</p>
-                  <p className="text-[16px] ">$14.50</p>
+                <div className="flex">
+                  <div className="h-[40px] w-[90px] flex justify-around items-center border border-black-800">
+                    <MinusOutlined
+                      className="text-[20px] cursor-pointer"
+                      onClick={() => decreaseQuantity(item.id)}
+                    />
+                    <p className="text-[20px]">{item.quantity}</p>
+                    <PlusOutlined
+                      className="text-[20px] cursor-pointer"
+                      onClick={() => increaseQuantity(item.id)}
+                    />
+                  </div>
+                  <DeleteOutlined
+                    className="text-[25px] ml-5 text-red-600 cursor-pointer"
+                    onClick={() => deleteItem(item.id)}
+                  />
                 </div>
               </div>
-
-              <div className="flex ">
-                <div className="h-[40px] w-[90px] flex justify-around items-center border border-black-500">
-                  <MinusOutlined className="text-[20px]" />
-                  <p className="text-[20px]">10</p>
-                  <PlusOutlined className="text-[20px]" />
-                </div>
-                <DeleteOutlined className="text-[25px] ml-5 text-red-600 cursor-pointer" />
-              </div>
-            </div>
-
-            <div className="w-full h-[75px] flex justify-between items-center">
-              <div className="flex">
-                <Image alt="Product" className="h-[60px] w-[60px]" src={Img1} />
-
-                <div className="h-[60px] ml-4 flex-col justify-center items-center">
-                  <p className="text-[20px] text-green-500">Product Name</p>
-                  <p className="text-[16px] ">$14.50</p>
-                </div>
-              </div>
-
-              <div className="flex ">
-                <div className="h-[40px] w-[90px] flex justify-around items-center border border-black-500">
-                  <MinusOutlined className="text-[20px]" />
-                  <p className="text-[20px]">10</p>
-                  <PlusOutlined className="text-[20px]" />
-                </div>
-                <DeleteOutlined className="text-[25px] ml-5 text-red-600 cursor-pointer" />
-              </div>
-            </div>
-
-            <div className="w-full h-[75px] flex justify-between items-center">
-              <div className="flex">
-                <Image alt="Product" className="h-[60px] w-[60px]" src={Img1} />
-
-                <div className="h-[60px] ml-4 flex-col justify-center items-center">
-                  <p className="text-[20px] text-green-500">Product Name</p>
-                  <p className="text-[16px] ">$14.50</p>
-                </div>
-              </div>
-
-              <div className="flex ">
-                <div className="h-[40px] w-[90px] flex justify-around items-center border border-black-500">
-                  <MinusOutlined className="text-[20px]" />
-                  <p className="text-[20px]">10</p>
-                  <PlusOutlined className="text-[20px]" />
-                </div>
-                <DeleteOutlined className="text-[25px] ml-5 text-red-600 cursor-pointer" />
-              </div>
-            </div>
+            ))}
 
             <div className="mt-[30px] flex justify-between items-center">
-              <p className="text-[20px]">Total: (3)</p>
-              <p className="text-[20px] text-red-600">$ 41</p>
+              <p className="text-[20px]">Total: ({totalItems})</p>
+              <p className="text-[20px] text-red-600">
+                ${totalPrice.toFixed(2)}
+              </p>
             </div>
-
           </div>
         </Drawer>
       </div>
