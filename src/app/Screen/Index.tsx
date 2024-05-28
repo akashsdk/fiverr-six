@@ -1,7 +1,6 @@
 import React from "react";
 import Navlink from "../components/Navlink";
 import CustomSlider from "../components/CustomSlider";
-import Image from "next/image";
 
 import Img1 from "../../Data/Img/Product-1.png";
 import Img2 from "../../Data/Img/Product-2.png";
@@ -12,13 +11,13 @@ import Img6 from "../../Data/Img/Product-6.png";
 import Img7 from "../../Data/Img/Product-7.png";
 
 const slides = [
-  { src: Img1, alt: "Product 1", details: "Product Details 1" },
-  { src: Img2, alt: "Product 2", details: "Product Details 2" },
-  { src: Img3, alt: "Product 3", details: "Product Details 3" },
-  { src: Img4, alt: "Product 4", details: "Product Details 4" },
-  { src: Img5, alt: "Product 5", details: "Product Details 5" },
-  { src: Img6, alt: "Product 6", details: "Product Details 6" },
-  { src: Img7, alt: "Product 7", details: "Product Details 7" },
+  { src: Img1, alt: "Product 1", details: "Product Details 1", percentage: 60 },
+  { src: Img2, alt: "Product 2", details: "Product Details 2", percentage: 65 },
+  { src: Img3, alt: "Product 3", details: "Product Details 3", percentage: 12 },
+  { src: Img4, alt: "Product 4", details: "Product Details 4", percentage: 50 },
+  { src: Img5, alt: "Product 5", details: "Product Details 5", percentage: 10 },
+  { src: Img6, alt: "Product 6", details: "Product Details 6", percentage: 30 },
+  { src: Img7, alt: "Product 7", details: "Product Details 7", percentage: 0 },
 ];
 
 export default function Index() {
@@ -26,19 +25,19 @@ export default function Index() {
     <div className="Index-Body">
       <div className="w-full md:w-[50%]">
         <p
-          className="text-[80px] font-bold text-red-500 ml-10"
+          className="text-[35px] md:text-[80px] mt-[30px] md:mt-[0px] font-bold text-red-500 ml-10"
           style={{ fontFamily: "Poppins, sans-serif" }}
         >
           Find your,
         </p>
 
         <p
-          className="text-[80px] font-bold text-green-700 ml-10"
+          className="text-[35px] md:text-[80px] font-bold text-green-700 ml-10"
           style={{ fontFamily: "Poppins, sans-serif" }}
         >
           Best one!
         </p>
-        <p className="text-[20px] ml-10 mt-[15vh] text-opacity-60">
+        <p className="md:text-[20px] text-[18px] ml-10 mt-[5vh] md:mt-[15vh] text-opacity-60">
           Step into style, comfort and confidence
           <br />- Discover the perfect pair today!🤗
         </p>
@@ -51,7 +50,7 @@ export default function Index() {
         />
       </div>
       {/* right - side*/}
-      <div className="w-full md:w-[50%] flex-col justify-center items-center">
+      <div className="w-full md:w-[50%] mt-[30px] md:mt-[0px] flex-col justify-center items-center">
         <CustomSlider slides={slides} />
       </div>
     </div>

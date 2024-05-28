@@ -7,6 +7,7 @@ interface Slide {
   src: StaticImageData;
   alt: string;
   details: string;
+  percentage: number;
 }
 
 interface CustomSliderProps {
@@ -14,7 +15,10 @@ interface CustomSliderProps {
   autoPlayInterval?: number;
 }
 
-const CustomSlider: React.FC<CustomSliderProps> = ({ slides, autoPlayInterval = 6000 }) => {
+const CustomSlider: React.FC<CustomSliderProps> = ({
+  slides,
+  autoPlayInterval = 6000,
+}) => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
@@ -31,8 +35,10 @@ const CustomSlider: React.FC<CustomSliderProps> = ({ slides, autoPlayInterval = 
 
   return (
     <div className="w-full flex flex-col justify-center items-center">
-      <p className="text-[35px] font-bold text-red-500">Up to 60% off 😯</p>
-      <div className="relative h-[300px] w-full flex justify-center items-center mt-4">
+      <p className="text-[25px] md:text-[35px] font-bold text-red-500 mt-[20px] md:mt-[px]">
+        Up to {slides[currentSlide].percentage}% off 😯
+      </p>
+      <div className="relative h-[400px] md:h-[450px] w-full flex justify-center items-center mt-4">
         <Image
           alt={slides[currentSlide].alt}
           src={slides[currentSlide].src}
@@ -40,7 +46,7 @@ const CustomSlider: React.FC<CustomSliderProps> = ({ slides, autoPlayInterval = 
         />
       </div>
       <p className="text-[20px] mt-4">{slides[currentSlide].details}</p>
-      <div className="flex mt-4">
+      <div className="flex mt-4 md:mb-[0px] mb-[20px]">
         {slides.map((_, index) => (
           <button
             key={index}
