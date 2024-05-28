@@ -54,3 +54,18 @@ body {
   flex-direction: column;
   transition: 0.5s;
 }
+
+/* Index */
+.Index-Body {
+  height: calc(100vh - 100px);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+    to left,
+    rgb(168, 239, 246),
+    rgb(228, 246, 255),
+    #fff
+  );
+}
