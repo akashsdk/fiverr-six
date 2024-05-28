@@ -69,3 +69,23 @@ body {
     #fff
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 999px) {
+  .Index-Body {
+    height: auto;
+    width: 100%;
+    flex-direction: column;
+  }
+}

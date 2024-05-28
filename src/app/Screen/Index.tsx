@@ -1,10 +1,11 @@
 import React from "react";
 import Navlink from "../components/Navlink";
+import Image from "next/image";
 
 export default function Index() {
   return (
     <div className="Index-Body">
-      <div className="w-[50%]">
+      <div className="w-full md:w-[50%]">
         <p
           className="text-[80px] font-bold text-red-500 ml-10"
           style={{ fontFamily: "Poppins, sans-serif" }}
@@ -30,7 +31,9 @@ export default function Index() {
                 text="Shop Now"
               />
       </div>
-      <div className="w-[50%]">Right</div>
+      <div className="w-full md:w-[50% flex justify-center items-center">
+        hh
+      </div>
     </div>
   );
 }
