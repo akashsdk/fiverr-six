@@ -12,7 +12,7 @@ export default function NewArrivals() {
       <div className="w-11/12">
         <p className="text-[35px]">New Arrivals😍</p>
 
-        <div className="w-full flex items-center justify-between">
+        <div className="NewArrivals-Box">
           <ProductCart
             img={Img1}
             type="Poster"
@@ -27,7 +27,7 @@ export default function NewArrivals() {
             type="Poster"
             text="Poster 2"
             price="$20.00"
-            discountPercentage="2.5"
+            discountPercentage="25"
             details="Product 2 Details"
           />
 
@@ -35,8 +35,8 @@ export default function NewArrivals() {
             img={Img3}
             type="Poster"
             text="Poster 3"
-            price="$13.00"
-            discountPercentage="20"
+            price="$100.00"
+            discountPercentage="10"
             details="Product 3 Details"
           />
 

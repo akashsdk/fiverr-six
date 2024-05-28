@@ -2,11 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-
 /* globals.css */
 @import "~slick-carousel/slick/slick.css";
 @import "~slick-carousel/slick/slick-theme.css";
-
 
 :root {
   --foreground-rgb: 0, 0, 0; /* Text color black */
@@ -76,7 +74,14 @@ body {
   );
 }
 
-
+/* NewArrivals */
+.NewArrivals-Box {
+  height: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 
 
@@ -92,6 +97,9 @@ body {
   .Index-Body {
     height: auto;
     width: 100%;
+    flex-direction: column;
+  }
+  .NewArrivals-Box {
     flex-direction: column;
   }
 }
