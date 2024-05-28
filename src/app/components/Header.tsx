@@ -114,6 +114,7 @@ export default function Header() {
           }
         >
           <div className="w-full">
+
             <div className="w-full h-[75px] flex justify-between items-center">
               <div className="flex">
                 <Image alt="Product" className="h-[60px] w-[60px]" src={Img1} />
@@ -125,12 +126,52 @@ export default function Header() {
               </div>
 
               <div className="flex ">
-                <div className="h-[35px] w-[80px] flex justify-around items-center">
+                <div className="h-[40px] w-[90px] flex justify-around items-center border border-black-500">
                   <MinusOutlined className="text-[20px]" />
                   <p className="text-[20px]">10</p>
                   <PlusOutlined className="text-[20px]" />
                 </div>
-                <DeleteOutlined className="text-[25px] ml-5 text-red-600" />
+                <DeleteOutlined className="text-[25px] ml-5 text-red-600 cursor-pointer" />
+              </div>
+            </div>
+
+            <div className="w-full h-[75px] flex justify-between items-center">
+              <div className="flex">
+                <Image alt="Product" className="h-[60px] w-[60px]" src={Img1} />
+
+                <div className="h-[60px] ml-4 flex-col justify-center items-center">
+                  <p className="text-[20px] text-green-500">Product Name</p>
+                  <p className="text-[16px] ">$14.50</p>
+                </div>
+              </div>
+
+              <div className="flex ">
+                <div className="h-[40px] w-[90px] flex justify-around items-center border border-black-500">
+                  <MinusOutlined className="text-[20px]" />
+                  <p className="text-[20px]">10</p>
+                  <PlusOutlined className="text-[20px]" />
+                </div>
+                <DeleteOutlined className="text-[25px] ml-5 text-red-600 cursor-pointer" />
+              </div>
+            </div>
+
+            <div className="w-full h-[75px] flex justify-between items-center">
+              <div className="flex">
+                <Image alt="Product" className="h-[60px] w-[60px]" src={Img1} />
+
+                <div className="h-[60px] ml-4 flex-col justify-center items-center">
+                  <p className="text-[20px] text-green-500">Product Name</p>
+                  <p className="text-[16px] ">$14.50</p>
+                </div>
+              </div>
+
+              <div className="flex ">
+                <div className="h-[40px] w-[90px] flex justify-around items-center border border-black-500">
+                  <MinusOutlined className="text-[20px]" />
+                  <p className="text-[20px]">10</p>
+                  <PlusOutlined className="text-[20px]" />
+                </div>
+                <DeleteOutlined className="text-[25px] ml-5 text-red-600 cursor-pointer" />
               </div>
             </div>
 
@@ -138,6 +179,7 @@ export default function Header() {
               <p className="text-[20px]">Total: (3)</p>
               <p className="text-[20px] text-red-600">$ 41</p>
             </div>
+
           </div>
         </Drawer>
       </div>
