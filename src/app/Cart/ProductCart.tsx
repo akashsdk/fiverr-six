@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from "react";
 import { Drawer, Space, Rate } from "antd";
 import Image, { StaticImageData } from "next/image";
-
 import { PlusOutlined, MinusOutlined } from "@ant-design/icons";
 
 interface ProductCartProps {
@@ -18,6 +17,7 @@ interface ProductCartProps {
   status: string;
   sells: string;
   rating: number;
+  code:string;
 }
 
 const ProductCart: React.FC<ProductCartProps> = ({
@@ -32,6 +32,7 @@ const ProductCart: React.FC<ProductCartProps> = ({
   status,
   sells,
   rating,
+  code,
 }) => {
   const originalPrice = parseFloat(price.replace("$", ""));
   const discount = parseFloat(discountPercentage);
@@ -200,9 +201,16 @@ const ProductCart: React.FC<ProductCartProps> = ({
 
             <div className="flex">
               <p className="text-[18px]" style={{ opacity: ".6" }}>
+              Product Code:
+              </p>
+              <p className="text-[18px] ml-[6px]">{code}</p>
+            </div>
+
+            <div className="flex">
+              <p className="text-[18px]" style={{ opacity: ".6" }}>
                 Status:
               </p>
-              <p className="text-[18px] ml-[6px] text-green-700">{status}</p>
+              <p className={`text-[18px] ml-[6px] ${status === "Out Stock" ? "text-red-500" : "text-green-700"}`}>{status}</p>
             </div>
 
             <div className="flex">
@@ -233,29 +241,30 @@ const ProductCart: React.FC<ProductCartProps> = ({
             </div>
 
             <div className=" w-[100px] mt-[30px] flex justify-evenly items-center border-2 border-green-700">
-              <MinusOutlined
-                className="text-[25px] cursor-pointer"
-                onClick={handleDecrement}
-              />
+              <PlusOutlined className="text-[25px] cursor-pointer" onClick={handleIncrement} />
               <p className="text-[25px]">{quantity}</p>
-              <PlusOutlined
-                className="text-[25px] cursor-pointer"
-                onClick={handleIncrement}
-              />
+              <MinusOutlined className="text-[25px] cursor-pointer" onClick={handleDecrement} />
             </div>
 
             <div className="flex items-center mt-[20px]">
               <p className="text-[18px]" style={{ opacity: ".6" }}>
                 Total: ({quantity})
               </p>
-              <p className="text-[18px] ml-[6px] text-green-700">
-                ${totalPrice.toFixed(2)}
-              </p>
+              <p className="text-[18px] ml-[6px] text-green-700">${totalPrice.toFixed(2)}</p>
             </div>
 
-            <button className="h-[40px] w-[200px] bg-green-700 text-white border-2 border-green-700 font-bold hover:text-green-700 hover:bg-white mt-[20px]">
-              Add to Cart
-            </button>
+            {status === "Out Stock" ? (
+              <div>
+                <button className="h-[40px] w-[200px] bg-gray-400 text-white border-2 border-gray-400 font-bold cursor-not-allowed mt-[20px]" disabled>
+                  Add to Cart
+                </button>
+                <p className="text-red-500 mt-[10px]">This product is currently out of stock.</p>
+              </div>
+            ) : (
+              <button className="h-[40px] w-[200px] bg-green-700 text-white border-2 border-green-700 font-bold hover:text-green-700 hover:bg-white mt-[20px]">
+                Add to Cart
+              </button>
+            )}
           </div>
         </div>
       </Drawer>

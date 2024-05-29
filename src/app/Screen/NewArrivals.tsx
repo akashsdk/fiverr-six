@@ -28,6 +28,7 @@ export default function NewArrivals() {
             status="Out Stock"
             sells="20"
             rating={3}
+            code="Pos-1"
           />
 
           <ProductCart
@@ -42,6 +43,7 @@ export default function NewArrivals() {
             status="In Stock"
             sells="0"
             rating={0}
+            code="Pos-2"
           />
 
           <ProductCart
@@ -56,6 +58,7 @@ export default function NewArrivals() {
             status="In Stock"
             sells="10"
             rating={4}
+            code="Pos-3"
           />
 
           <ProductCart
@@ -70,6 +73,7 @@ export default function NewArrivals() {
             status="In Stock"
             sells="50"
             rating={2}
+            code="Pos-4"
           />
         </div>
       </div>
