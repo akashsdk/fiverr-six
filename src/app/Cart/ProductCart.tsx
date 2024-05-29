@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Drawer, Space } from "antd";
+import { Drawer, Space, Rate } from "antd";
 import Image, { StaticImageData } from "next/image";
 
 import { PlusOutlined, MinusOutlined } from "@ant-design/icons";
@@ -15,6 +15,9 @@ interface ProductCartProps {
   price: string;
   discountPercentage: string;
   details: string;
+  status: string;
+  sells: string;
+  rating: number;
 }
 
 const ProductCart: React.FC<ProductCartProps> = ({
@@ -26,6 +29,9 @@ const ProductCart: React.FC<ProductCartProps> = ({
   price,
   discountPercentage,
   details,
+  status,
+  sells,
+  rating,
 }) => {
   const originalPrice = parseFloat(price.replace("$", ""));
   const discount = parseFloat(discountPercentage);
@@ -34,6 +40,7 @@ const ProductCart: React.FC<ProductCartProps> = ({
   const [open, setOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState<StaticImageData>(img);
   const images = [img, img2, img3];
+  const [quantity, setQuantity] = useState(1);
 
   const showDrawer = () => {
     setOpen(true);
@@ -47,6 +54,14 @@ const ProductCart: React.FC<ProductCartProps> = ({
     setSelectedImage(image);
   };
 
+  const handleIncrement = () => {
+    setQuantity((prevQuantity) => (prevQuantity < 10 ? prevQuantity + 1 : 10));
+  };
+
+  const handleDecrement = () => {
+    setQuantity((prevQuantity) => (prevQuantity > 1 ? prevQuantity - 1 : 1));
+  };
+
   useEffect(() => {
     const interval = setInterval(() => {
       setSelectedImage((prevImage) => {
@@ -58,6 +73,8 @@ const ProductCart: React.FC<ProductCartProps> = ({
 
     return () => clearInterval(interval);
   }, [images]);
+
+  const totalPrice = newPrice * quantity;
 
   return (
     <div className="p-4 rounded-2 border m-[10px] rounded-md hover:shadow-lg transition duration-300">
@@ -175,6 +192,21 @@ const ProductCart: React.FC<ProductCartProps> = ({
 
             <div className="flex">
               <p className="text-[18px]" style={{ opacity: ".6" }}>
+                Discount Price:
+              </p>
+              <p className="text-[18px] ml-[6px] line-through">{price}</p>
+              <p className="text-[18px] ml-[6px] text-red-500">${newPrice}</p>
+            </div>
+
+            <div className="flex">
+              <p className="text-[18px]" style={{ opacity: ".6" }}>
+                Status:
+              </p>
+              <p className="text-[18px] ml-[6px] text-green-700">{status}</p>
+            </div>
+
+            <div className="flex">
+              <p className="text-[18px]" style={{ opacity: ".6" }}>
                 Details:
               </p>
               <p className="text-[18px] ml-[6px]">{details}</p>
@@ -182,24 +214,43 @@ const ProductCart: React.FC<ProductCartProps> = ({
 
             <div className="flex">
               <p className="text-[18px]" style={{ opacity: ".6" }}>
-                Old Price:
+                Total Sells:
               </p>
-              <p className="text-[18px] ml-[6px] line-through text-red-500">
-                {price}
-              </p>
+              <p className="text-[18px] ml-[6px]">{sells}.</p>
             </div>
 
-            <div className="flex">
+            <div className="flex items-center">
               <p className="text-[18px]" style={{ opacity: ".6" }}>
-                New Price:
+                Rating:
               </p>
-              <p className="text-[18px] ml-[6px] text-red-500">{newPrice}</p>
+              <Rate
+                className="ml-2"
+                value={rating}
+                disabled
+                allowHalf
+                style={{ color: "#faad14" }}
+              />
             </div>
 
             <div className=" w-[100px] mt-[30px] flex justify-evenly items-center border-2 border-green-700">
-              <PlusOutlined className="text-[25px] cursor-pointer" />
-              <p className="text-[25px]">1</p>
-              <MinusOutlined className="text-[25px] cursor-pointer" />
+              <MinusOutlined
+                className="text-[25px] cursor-pointer"
+                onClick={handleDecrement}
+              />
+              <p className="text-[25px]">{quantity}</p>
+              <PlusOutlined
+                className="text-[25px] cursor-pointer"
+                onClick={handleIncrement}
+              />
+            </div>
+
+            <div className="flex items-center mt-[20px]">
+              <p className="text-[18px]" style={{ opacity: ".6" }}>
+                Total: ({quantity})
+              </p>
+              <p className="text-[18px] ml-[6px] text-green-700">
+                ${totalPrice.toFixed(2)}
+              </p>
             </div>
 
             <button className="h-[40px] w-[200px] bg-green-700 text-white border-2 border-green-700 font-bold hover:text-green-700 hover:bg-white mt-[20px]">
