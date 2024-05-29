@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Drawer, Space, Rate } from "antd";
+import { Drawer, Space, Rate, notification, message } from "antd";
 import Image, { StaticImageData } from "next/image";
 import { PlusOutlined, MinusOutlined } from "@ant-design/icons";
 
@@ -17,7 +17,7 @@ interface ProductCartProps {
   status: string;
   sells: string;
   rating: number;
-  code:string;
+  code: string;
 }
 
 const ProductCart: React.FC<ProductCartProps> = ({
@@ -77,8 +77,30 @@ const ProductCart: React.FC<ProductCartProps> = ({
 
   const totalPrice = newPrice * quantity;
 
+  const [messageApi, contextHolderMessage] = message.useMessage();
+  const [notificationApi, contextHolderNotification] =
+    notification.useNotification();
+
+  const handleAddToCart = () => {
+    messageApi
+      .open({
+        type: "loading",
+        content: "Adding to cart...",
+        duration: 2.5,
+      })
+      .then(() => {
+        onClose();
+        notificationApi.success({
+          message: "Success",
+          description: "The product has been added to your cart.",
+        });
+      });
+  };
+
   return (
-    <div className="p-4 rounded-2 border m-[10px] rounded-md hover:shadow-lg transition duration-300">
+    <div className="h-[320px] md:h-[400px] md:w-[30%] p-4 rounded-2 border m-[10px] rounded-md md:hover:shadow-lg transition duration-300">
+      {contextHolderMessage}
+      {contextHolderNotification}
       <div className="relative">
         <div className="absolute z-10 h-[25px] w-[60px] bg-yellow-300 flex justify-center items-center">
           <p className="text-sm text-black font-bold">
@@ -89,7 +111,7 @@ const ProductCart: React.FC<ProductCartProps> = ({
         <Image
           src={img}
           alt={text}
-          className="w-full h-auto transform transition-transform hover:scale-105"
+          className="w-full h-[170px] md:h-[250px] transform transition-transform hover:scale-105"
         />
       </div>
       <p className="text-lg font-bold mt-[10px]">{text}</p>
@@ -115,7 +137,7 @@ const ProductCart: React.FC<ProductCartProps> = ({
           </div>
         }
         placement="bottom"
-        height={600}
+        height={650}
         onClose={onClose}
         open={open}
         extra={
@@ -129,8 +151,8 @@ const ProductCart: React.FC<ProductCartProps> = ({
           </Space>
         }
       >
-        <div className="flex">
-          <div className="w-[40%] flex-col justify-center items-center">
+        <div className="ProductCart-Drawer">
+          <div className="ProductCart-Drawer-Box1">
             <div className="w-full flex justify-center items-center">
               <Image
                 className="h-[300px] w-[300px]"
@@ -181,8 +203,10 @@ const ProductCart: React.FC<ProductCartProps> = ({
             </div>
           </div>
 
-          <div className="w-[60%]">
-            <p className="text-[33px] text-green-700 font-medium">{text}</p>
+          <div className="ProductCart-Drawer-Box2">
+            <p className="text-[33px] mt-[30px] md:mt-[0px] text-green-700 font-medium">
+              {text}
+            </p>
 
             <div className="flex md:mt-[30px]">
               <p className="text-[18px]" style={{ opacity: ".6" }}>
@@ -201,7 +225,7 @@ const ProductCart: React.FC<ProductCartProps> = ({
 
             <div className="flex">
               <p className="text-[18px]" style={{ opacity: ".6" }}>
-              Product Code:
+                Product Code:
               </p>
               <p className="text-[18px] ml-[6px]">{code}</p>
             </div>
@@ -210,7 +234,13 @@ const ProductCart: React.FC<ProductCartProps> = ({
               <p className="text-[18px]" style={{ opacity: ".6" }}>
                 Status:
               </p>
-              <p className={`text-[18px] ml-[6px] ${status === "Out Stock" ? "text-red-500" : "text-green-700"}`}>{status}</p>
+              <p
+                className={`text-[18px] ml-[6px] ${
+                  status === "Out Stock" ? "text-red-500" : "text-green-700"
+                }`}
+              >
+                {status}
+              </p>
             </div>
 
             <div className="flex">
@@ -241,27 +271,43 @@ const ProductCart: React.FC<ProductCartProps> = ({
             </div>
 
             <div className=" w-[100px] mt-[30px] flex justify-evenly items-center border-2 border-green-700">
-              <PlusOutlined className="text-[25px] cursor-pointer" onClick={handleIncrement} />
+              <MinusOutlined
+                className="text-[25px] cursor-pointer"
+                onClick={handleDecrement}
+              />
               <p className="text-[25px]">{quantity}</p>
-              <MinusOutlined className="text-[25px] cursor-pointer" onClick={handleDecrement} />
+              <PlusOutlined
+                className="text-[25px] cursor-pointer"
+                onClick={handleIncrement}
+              />
             </div>
 
             <div className="flex items-center mt-[20px]">
               <p className="text-[18px]" style={{ opacity: ".6" }}>
                 Total: ({quantity})
               </p>
-              <p className="text-[18px] ml-[6px] text-green-700">${totalPrice.toFixed(2)}</p>
+              <p className="text-[18px] ml-[6px] text-green-700">
+                ${totalPrice.toFixed(2)}
+              </p>
             </div>
 
             {status === "Out Stock" ? (
               <div>
-                <button className="h-[40px] w-[200px] bg-gray-400 text-white border-2 border-gray-400 font-bold cursor-not-allowed mt-[20px]" disabled>
+                <button
+                  className="h-[40px] w-[200px] bg-gray-400 text-white border-2 border-gray-400 font-bold cursor-not-allowed mt-[20px]"
+                  disabled
+                >
                   Add to Cart
                 </button>
-                <p className="text-red-500 mt-[10px]">This product is currently out of stock.</p>
+                <p className="text-red-500 mt-[10px]">
+                  This product is currently out of stock.
+                </p>
               </div>
             ) : (
-              <button className="h-[40px] w-[200px] bg-green-700 text-white border-2 border-green-700 font-bold hover:text-green-700 hover:bg-white mt-[20px]">
+              <button
+                className="h-[40px] w-[200px] bg-green-700 text-white border-2 border-green-700 font-bold hover:text-green-700 hover:bg-white mt-[20px]"
+                onClick={handleAddToCart}
+              >
                 Add to Cart
               </button>
             )}

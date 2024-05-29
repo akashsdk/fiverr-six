@@ -86,6 +86,22 @@ body {
 
 
 
+/* ProductCart */
+.ProductCart-Drawer{
+  display: flex;
+}
+.ProductCart-Drawer-Box1{
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.ProductCart-Drawer-Box2{
+  width: 60%;
+}
+
+
 
 
 
@@ -100,6 +116,15 @@ body {
     flex-direction: column;
   }
   .NewArrivals-Box {
+    flex-direction: row;
+  }
+  .ProductCart-Drawer{
     flex-direction: column;
+  }
+  .ProductCart-Drawer-Box1{
+    width: 100%;
+  }
+  .ProductCart-Drawer-Box2{
+    width: 100%;
   }
 }
