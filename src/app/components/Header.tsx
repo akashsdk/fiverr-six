@@ -29,7 +29,7 @@ export default function Header() {
   const [cartItems, setCartItems] = useState<CartItem[]>([
     { id: 1, name: "Product Name", price: 14.5, quantity: 10, img: Img1 },
     { id: 2, name: "Product Name 2", price: 10.5, quantity: 1, img: Img1 },
-    { id: 3, name: "Product Name", price: 20.0, quantity: 1, img: Img1 },
+    { id: 3, name: "Product Name 3", price: 20.0, quantity: 1, img: Img1 },
   ]);
 
   const toggleMenu = () => {

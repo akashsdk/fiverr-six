@@ -6,6 +6,9 @@ import Img2 from "../../Data/Img/Poster2.jpeg";
 import Img3 from "../../Data/Img/Poster3.jpeg";
 import Img4 from "../../Data/Img/Poster4.jpeg";
 
+import Img5 from "../../Data/Img/Product-1.png";
+import Img6 from "../../Data/Img/Product-2.png";
+
 export default function NewArrivals() {
   return (
     <div className="w-full flex justify-center items-center mt-[20px] md:mt-[50px]">
@@ -15,6 +18,8 @@ export default function NewArrivals() {
         <div className="NewArrivals-Box">
           <ProductCart
             img={Img1}
+            img2={Img5}
+            img3={Img6}
             type="Poster"
             text="Poster 1"
             price="$23.50"
@@ -24,6 +29,8 @@ export default function NewArrivals() {
 
           <ProductCart
             img={Img2}
+            img2={Img5}
+            img3={Img6}
             type="Poster"
             text="Poster 2"
             price="$20.00"
@@ -33,6 +40,8 @@ export default function NewArrivals() {
 
           <ProductCart
             img={Img3}
+            img2={Img5}
+            img3={Img6}
             type="Poster"
             text="Poster 3"
             price="$100.00"
@@ -42,6 +51,8 @@ export default function NewArrivals() {
 
           <ProductCart
             img={Img4}
+            img2={Img5}
+            img3={Img6}
             type="Poster"
             text="Poster 4"
             price="$34.50"
