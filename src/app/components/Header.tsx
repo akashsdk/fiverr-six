@@ -9,6 +9,10 @@ import {
   PlusOutlined,
   MinusOutlined,
   DeleteOutlined,
+  SearchOutlined,
+  UserOutlined,
+  ShoppingOutlined,
+  CustomerServiceOutlined,
 } from "@ant-design/icons";
 import Navlink from "./Navlink";
 
@@ -117,6 +121,16 @@ export default function Header() {
               href="/contact"
               text="Contact"
             />
+            <Navlink
+              activeClasses="active-red"
+              className="mr-5 text-[20px] font-bold uppercase hover:text-green-700"
+              href="/Search"
+              text={
+                <>
+                  <SearchOutlined className="mt-[5px] text-[25px]"/>
+                </>
+              }
+            />
             <ShoppingCartOutlined
               style={{ fontSize: "24px", cursor: "pointer" }}
               onClick={showDrawer}
@@ -224,32 +238,58 @@ export default function Header() {
             <Navlink
               activeClasses="active-red"
               className="h-[40px] w-full flex justify-start items-center text-[20px] font-bold uppercase border-b border-black-500 hover:text-green-700"
-              href="/"
-              text="Home"
+              href="/Search"
+              text={
+                <>
+                  <SearchOutlined className="mr-[10px] text-[25px]"/>
+                  Search
+                </>
+              }
             />
+
             <Navlink
               activeClasses="active-red"
               className="h-[40px] w-full flex justify-start items-center text-[20px] font-bold uppercase border-b border-black-500 hover:text-green-700"
               href="/about"
-              text="About"
+              text={
+                <>
+                  <UserOutlined className="mr-[10px] text-[25px]"/>
+                  About
+                </>
+              }
             />
             <Navlink
               activeClasses="active-red"
               className="h-[40px] w-full flex justify-start items-center text-[20px] font-bold uppercase border-b border-black-500 hover:text-green-700"
               href="/shop"
-              text="Shop"
+              text={
+                <>
+                 <ShoppingOutlined className="mr-[10px] text-[25px]"/>
+                  Shop
+                </>
+              }
             />
             <Navlink
               activeClasses="active-red"
               className="h-[40px] w-full flex justify-start items-center text-[20px] font-bold uppercase border-b border-black-500 hover:text-green-700"
               href="/contact"
-              text="Contact"
+              text={
+                <>
+                 <CustomerServiceOutlined className="mr-[10px] text-[25px]"/>
+                 Contact
+                </>
+              }
             />
             <Navlink
               activeClasses="active-red"
               className="h-[40px] w-full flex justify-start items-center text-[20px] font-bold uppercase border-b border-black-500 hover:text-green-700"
               href="/profile"
-              text="Profile"
+              text={
+                <>
+                 <UserOutlined className="mr-[10px] text-[25px]"/>
+                 Profile
+                </>
+              }
             />
           </div>
         </div>
