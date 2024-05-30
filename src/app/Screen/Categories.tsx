@@ -25,6 +25,14 @@ export default function Categories() {
             <CategoriesCart img={Img5} text="T-Shirts - Woman"/>
             <CategoriesCart img={Img6} text="T-Shirts - Men"/>
             <CategoriesCart img={Img7} text="Cotton Cap"/>
+
+            <CategoriesCart img={Img1} text="Personal Care 2" />
+            <CategoriesCart img={Img2} text="Chocolate 2"/>
+            <CategoriesCart img={Img3} text="Silk Saree 2" />
+            <CategoriesCart img={Img4} text="Poster 2"/>
+            <CategoriesCart img={Img5} text="T-Shirts - Woman 2"/>
+            <CategoriesCart img={Img6} text="T-Shirts - Men 2"/>
+            <CategoriesCart img={Img7} text="Cotton Cap 2"/>
         </div>
       </div>
     </div>
