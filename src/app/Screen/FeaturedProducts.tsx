@@ -1,5 +1,10 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import ProductCart from "../Cart/ProductCart";
+
+import Img1 from "../../Data/Img/Poster1.jpeg";
+import Img2 from "../../Data/Img/Poster2.jpeg";
+import Img3 from "../../Data/Img/Poster3.jpeg";
 
 export default function FeaturedProducts() {
   const [page, setPage] = useState(1);
@@ -10,7 +15,7 @@ export default function FeaturedProducts() {
     setTimeout(() => {
       setPage(newPage);
       setFade(false);
-    }, 500); 
+    }, 500);
   };
 
   return (
@@ -38,10 +43,121 @@ export default function FeaturedProducts() {
           </button>
         </div>
 
-        <div className={`transition-opacity duration-500 ${fade ? "opacity-0" : "opacity-100"}`}>
+        <div className={`transition-opacity duration-500 ${fade ? "opacity-0" : "opacity-100"}`} style={{ width: '100%' }}>
           {page === 1 ? (
-            <div>
-              <p>Page 1</p>
+            <div  style={{ width: '100%' }}>
+              <ProductCart
+                img={Img1}
+                img2={Img2}
+                img3={Img3}
+                type="Poster"
+                text="Poster 1"
+                price="$23.50"
+                discountPercentage="2"
+                details="Product 1 Details Product 1 Details Product 1 Details Product 1 Details Product 1 Details Product 1 Details"
+                status="Out Stock"
+                sells="20"
+                rating={3}
+                code="Pos-1"
+              />
+              <ProductCart
+                img={Img1}
+                img2={Img2}
+                img3={Img3}
+                type="Poster"
+                text="Poster 1"
+                price="$23.50"
+                discountPercentage="2"
+                details="Product 1 "
+                status="Out Stock"
+                sells="20"
+                rating={3}
+                code="Pos-1"
+              />
+              <ProductCart
+                img={Img1}
+                img2={Img2}
+                img3={Img3}
+                type="Poster"
+                text="Poster 1"
+                price="$23.50"
+                discountPercentage="2"
+                details="Product 1 "
+                status="Out Stock"
+                sells="20"
+                rating={3}
+                code="Pos-1"
+              />
+              <ProductCart
+                img={Img1}
+                img2={Img2}
+                img3={Img3}
+                type="Poster"
+                text="Poster 1"
+                price="$23.50"
+                discountPercentage="2"
+                details="Product 1 Details P Product 1 Details"
+                status="In Stock"
+                sells="20"
+                rating={3}
+                code="Pos-1"
+              />
+              <ProductCart
+                img={Img1}
+                img2={Img2}
+                img3={Img3}
+                type="Poster"
+                text="Poster 1"
+                price="$23.50"
+                discountPercentage="2"
+                details="Product 1 Details Product 1 Details Product 1 Details Product 1 Details Product 1 Details Product 1 Details"
+                status="Out Stock"
+                sells="20"
+                rating={3}
+                code="Pos-1"
+              />
+              <ProductCart
+                img={Img1}
+                img2={Img2}
+                img3={Img3}
+                type="Poster"
+                text="Poster 1"
+                price="$23.50"
+                discountPercentage="2"
+                details="Product 1 "
+                status="Out Stock"
+                sells="20"
+                rating={3}
+                code="Pos-1"
+              />
+              <ProductCart
+                img={Img1}
+                img2={Img2}
+                img3={Img3}
+                type="Poster"
+                text="Poster 1"
+                price="$23.50"
+                discountPercentage="2"
+                details="Product 1 "
+                status="Out Stock"
+                sells="20"
+                rating={3}
+                code="Pos-1"
+              />
+              <ProductCart
+                img={Img1}
+                img2={Img2}
+                img3={Img3}
+                type="Poster"
+                text="Poster 1"
+                price="$23.50"
+                discountPercentage="2"
+                details="Product 1 Details P Product 1 Details"
+                status="In Stock"
+                sells="20"
+                rating={3}
+                code="Pos-1"
+              />
             </div>
           ) : page === 2 ? (
             <div>
