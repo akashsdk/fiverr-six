@@ -4,6 +4,7 @@ import NewArrivals from "./Screen/NewArrivals";
 import Categories from "./Screen/Categories";
 import ReadyForOrder from "./Screen/ReadyForOrder";
 import Poster from "./Screen/Poster";
+import FeaturedProducts from "./Screen/FeaturedProducts";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <NewArrivals />
       <ReadyForOrder />
       <Poster />
+      <FeaturedProducts />
      <h1 className="text-3xl font-bold underline">
       Hello world!
     </h1>
