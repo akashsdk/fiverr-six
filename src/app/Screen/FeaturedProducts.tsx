@@ -45,7 +45,7 @@ export default function FeaturedProducts() {
 
         <div className={`transition-opacity duration-500 ${fade ? "opacity-0" : "opacity-100"}`} style={{ width: '100%' }}>
           {page === 1 ? (
-            <div  style={{ width: '100%' }}>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
               <ProductCart
                 img={Img1}
                 img2={Img2}
