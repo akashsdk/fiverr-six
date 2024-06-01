@@ -180,7 +180,7 @@ export default function FeaturedProducts() {
             </div>
           ) : page === 2 ? (
             <div>
-              <p> page 2 </p>
+              <p> page page </p>
             </div>
           ) : (
             <h1>Error page</h1>
