@@ -98,7 +98,7 @@ const ProductCart: React.FC<ProductCartProps> = ({
   };
 
   return (
-    <div className="h-[320px] md:h-[400px] md:w-[30%] p-4 rounded-2 border m-[10px] rounded-md md:hover:shadow-lg transition duration-300">
+    <div className="h-[320px] md:h-[400px] md:w-[280px] lg:w-[300px] p-4 rounded-2 border m-[10px] rounded-md md:hover:shadow-lg transition duration-300">
       {contextHolderMessage}
       {contextHolderNotification}
       <div className="relative">

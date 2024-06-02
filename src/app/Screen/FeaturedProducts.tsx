@@ -5,6 +5,7 @@ import ProductCart from "../Cart/ProductCart";
 import Img1 from "../../Data/Img/Poster1.jpeg";
 import Img2 from "../../Data/Img/Poster2.jpeg";
 import Img3 from "../../Data/Img/Poster3.jpeg";
+import Img4 from "../../Data/Img/Categories-3.png";
 
 export default function FeaturedProducts() {
   const [page, setPage] = useState(1);
@@ -160,8 +161,63 @@ export default function FeaturedProducts() {
               />
             </div>
           ) : page === 2 ? (
-            <div>
-              <p>Page 2</p>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              <ProductCart
+                img={Img4}
+                img2={Img2}
+                img3={Img3}
+                type="Poster"
+                text="Poster 1"
+                price="$23.50"
+                discountPercentage="2"
+                details="Product 1 Details Product 1 Details Product 1 Details Product 1 Details Product 1 Details Product 1 Details"
+                status="Out Stock"
+                sells="20"
+                rating={3}
+                code="Pos-1"
+              />
+              <ProductCart
+                img={Img4}
+                img2={Img2}
+                img3={Img3}
+                type="Poster"
+                text="Poster 1"
+                price="$23.50"
+                discountPercentage="2"
+                details="Product 1 "
+                status="Out Stock"
+                sells="20"
+                rating={3}
+                code="Pos-1"
+              />
+              <ProductCart
+                img={Img4}
+                img2={Img2}
+                img3={Img3}
+                type="Poster"
+                text="Poster 1"
+                price="$23.50"
+                discountPercentage="2"
+                details="Product 1 "
+                status="Out Stock"
+                sells="20"
+                rating={3}
+                code="Pos-1"
+              />
+              <ProductCart
+                img={Img4}
+                img2={Img2}
+                img3={Img3}
+                type="Poster"
+                text="Poster 1"
+                price="$23.50"
+                discountPercentage="2"
+                details="Product 1 Details P Product 1 Details"
+                status="In Stock"
+                sells="20"
+                rating={3}
+                code="Pos-1"
+              />
             </div>
           ) : (
             <h1>Error page</h1>
