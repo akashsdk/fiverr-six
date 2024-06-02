@@ -5,7 +5,7 @@ import { FloatButton } from "antd";
 
 const FloatButtonClient = () => {
   return (
-    <FloatButton.Group shape="square" style={{ right: 14 }}>
+    <FloatButton.Group shape="circle" style={{ right: 14 }}>
       <FloatButton.BackTop visibilityHeight={0} />
     </FloatButton.Group>
   );
