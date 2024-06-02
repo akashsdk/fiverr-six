@@ -1,13 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
-
-interface TimerProps {
-  timeDay: number;
-  timeHour: number;
-  timeMinut: number;
-  timeScend: number;
-}
+import React, { useState, useEffect } from "react";
 
 const calculateTimeLeft = (endTime: number) => {
   const now = new Date().getTime();
@@ -23,56 +16,20 @@ const calculateTimeLeft = (endTime: number) => {
   }
 };
 
-const Timer: React.FC<TimerProps> = ({
-  timeDay,
-  timeHour,
-  timeMinut,
-  timeScend,
-}) => {
-  const initialEndTime =
-    new Date().getTime() +
-    (timeDay * 24 * 60 * 60 + timeHour * 60 * 60 + timeMinut * 60 + timeScend) *
-      1000;
-
-  const endTimeRef = useRef(initialEndTime);
-  const [timeLeft, setTimeLeft] = useState(
-    calculateTimeLeft(endTimeRef.current)
-  );
-  const [timerKey, setTimerKey] = useState(0);
+const Timer = ({ endTime }: { endTime: number }) => {
+  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(endTime));
 
   useEffect(() => {
     const timer = setInterval(() => {
-      const newTimeLeft = calculateTimeLeft(endTimeRef.current);
-      setTimeLeft(newTimeLeft);
-
-      if (
-        newTimeLeft.hours === 0 &&
-        newTimeLeft.minutes === 0 &&
-        newTimeLeft.seconds === 0
-      ) {
-        clearInterval(timer);
-        endTimeRef.current =
-          new Date().getTime() +
-          (timeDay * 24 * 60 * 60 +
-            timeHour * 60 * 60 +
-            timeMinut * 60 +
-            timeScend) *
-            1000; 
-        setTimeout(() => {
-          setTimeLeft(calculateTimeLeft(endTimeRef.current));
-          setTimerKey((prevKey) => prevKey + 1);
-        }, 1000);
-      }
+      setTimeLeft(calculateTimeLeft(endTime));
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [timerKey, timeDay, timeHour, timeMinut, timeScend]);
+  }, [endTime]);
 
   return (
     <div>
-      {`${timeLeft.hours.toString().padStart(2, "0")}:${timeLeft.minutes
-        .toString()
-        .padStart(2, "0")}:${timeLeft.seconds.toString().padStart(2, "0")}`}
+      {String(timeLeft.hours).padStart(2, '0')}:{String(timeLeft.minutes).padStart(2, '0')}:{String(timeLeft.seconds).padStart(2, '0')}
     </div>
   );
 };
