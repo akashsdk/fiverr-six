@@ -6,6 +6,14 @@ import ReadyForOrder from "./Screen/ReadyForOrder";
 import Poster from "./Screen/Poster";
 import FeaturedProducts from "./Screen/FeaturedProducts";
 import FlashSale from "./Screen/FlashSale";
+import TopBrandProducts from "./Screen/TopBrandProducts";
+import ShopByCategories from "./Screen/ShopByCategories";
+import FashionTrends from "./Screen/FashionTrends";
+import About from "./about/page";
+import Contact from "./contact/page";
+
+
+
 
 export default function Home() {
   return (
@@ -17,9 +25,13 @@ export default function Home() {
       <Poster />
       <FeaturedProducts />
       <FlashSale />
-     <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
+      <TopBrandProducts />
+      <ShopByCategories />
+      <FashionTrends />
+      <Contact />
+      <About />
+
+      
     </div>
   );
 }

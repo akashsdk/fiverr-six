@@ -50,6 +50,10 @@ body {
   border-bottom: 1px solid #fff;
 }
 
+.web-bg{
+  background-color: rgb(235, 255, 255);
+}
+
 .Header-Box {
   background: transparent;
   display: flex;
