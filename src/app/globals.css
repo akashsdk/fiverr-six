@@ -61,7 +61,16 @@ body {
     rgb(228, 246, 255),
     #fff
   );
+  transition: 0.5s ease;
+}
 
+.web-bg2:hover{
+  background: linear-gradient(
+    to left,
+    rgb(168, 239, 246),
+    rgb(228, 246, 255),
+    #fff
+  );
 }
 
 .Header-Box {
