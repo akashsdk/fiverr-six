@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Index from "./Screen/Index";
 import NewArrivals from "./Screen/NewArrivals";
 import Categories from "./Screen/Categories";
@@ -11,14 +10,13 @@ import ShopByCategories from "./Screen/ShopByCategories";
 import FashionTrends from "./Screen/FashionTrends";
 import About from "./about/page";
 import Contact from "./contact/page";
-
-
-
+import ShortIndex from "./Screen/ShortIndex";
 
 export default function Home() {
   return (
     <div>
       <Index />
+      <ShortIndex />
       <Categories />
       <NewArrivals />
       <ReadyForOrder />
@@ -30,8 +28,6 @@ export default function Home() {
       <FashionTrends />
       <Contact />
       <About />
-
-      
     </div>
   );
 }

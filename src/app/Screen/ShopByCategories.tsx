@@ -3,7 +3,7 @@
 import React from 'react';
 import Image, { StaticImageData } from 'next/image'; 
 
-import IMG1 from "../../Data/Img/Product-1.png";
+import IMG1 from "../../Data/Icon/SBC-Icon 1.png";
 import IMG2 from "../../Data/Img/Product-2.png";
 
 interface SBCcomponentProps {
@@ -27,8 +27,14 @@ export default function ShopByCategories() {
         <p className="md:text-[35px] text-[25px] text-center">Shop By Categories</p>
 
         <div className='flex justify-center items-center'>
-          <SBCcomponent img={IMG1} text="Product 1" />
-          <SBCcomponent img={IMG2} text="Product 2" />
+          <SBCcomponent img={IMG1} text="Woman's & Girl's Fashion" />
+          <SBCcomponent img={IMG2} text="Health & Beauty" />
+          <SBCcomponent img={IMG2} text="" />
+          <SBCcomponent img={IMG2} text="" />
+          <SBCcomponent img={IMG2} text="" />
+          <SBCcomponent img={IMG2} text="Health & Beauty" />
+          <SBCcomponent img={IMG2} text="Health & Beauty" />
+          <SBCcomponent img={IMG2} text="Health & Beauty" />
         </div>
       </div>
     </div>

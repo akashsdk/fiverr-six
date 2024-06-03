@@ -54,6 +54,16 @@ body {
   background-color: rgb(235, 255, 255);
 }
 
+.web-bg2{
+  background: linear-gradient(
+    to right,
+    rgb(168, 239, 246),
+    rgb(228, 246, 255),
+    #fff
+  );
+
+}
+
 .Header-Box {
   background: transparent;
   display: flex;
