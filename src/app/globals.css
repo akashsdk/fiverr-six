@@ -82,6 +82,17 @@ body {
   transition: 0.5s;
 }
 
+.Footer-Box {
+  height: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: 0.5s;
+  background: rgb(168, 239, 246);
+}
+
 /* Index */
 .Index-Body {
   height: calc(100vh - 100px);

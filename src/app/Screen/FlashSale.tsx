@@ -23,6 +23,7 @@ const calculateInitialEndTime = () => {
 
 export default function FlashSale() {
   const [initialEndTime, setInitialEndTime] = useState<number | null>(null);
+  const [showMore, setShowMore] = useState(false);
 
   useEffect(() => {
     setInitialEndTime(calculateInitialEndTime());
@@ -78,7 +79,7 @@ export default function FlashSale() {
             text="Poster 1"
             price="$23.50"
             discountPercentage="2"
-            details="Product 1 "
+            details="Product 1"
             status="Out Stock"
             sells="20"
             rating={3}
@@ -92,63 +93,7 @@ export default function FlashSale() {
             text="Poster 1"
             price="$23.50"
             discountPercentage="2"
-            details="Product 1 "
-            status="Out Stock"
-            sells="20"
-            rating={3}
-            code="Pos-1"
-          />
-          <ProductCart
-            img={Img1}
-            img2={Img2}
-            img3={Img3}
-            type="Poster"
-            text="Poster 1"
-            price="$23.50"
-            discountPercentage="2"
-            details="Product 1 Details P Product 1 Details"
-            status="In Stock"
-            sells="20"
-            rating={3}
-            code="Pos-1"
-          />
-          <ProductCart
-            img={Img1}
-            img2={Img2}
-            img3={Img3}
-            type="Poster"
-            text="Poster 1"
-            price="$23.50"
-            discountPercentage="2"
-            details="Product 1 Details Product 1 Details Product 1 Details Product 1 Details Product 1 Details Product 1 Details"
-            status="Out Stock"
-            sells="20"
-            rating={3}
-            code="Pos-1"
-          />
-          <ProductCart
-            img={Img1}
-            img2={Img2}
-            img3={Img3}
-            type="Poster"
-            text="Poster 1"
-            price="$23.50"
-            discountPercentage="2"
-            details="Product 1 "
-            status="Out Stock"
-            sells="20"
-            rating={3}
-            code="Pos-1"
-          />
-          <ProductCart
-            img={Img1}
-            img2={Img2}
-            img3={Img3}
-            type="Poster"
-            text="Poster 1"
-            price="$23.50"
-            discountPercentage="2"
-            details="Product 1 "
+            details="Product 1"
             status="Out Stock"
             sells="20"
             rating={3}
@@ -168,6 +113,74 @@ export default function FlashSale() {
             rating={3}
             code="Pos-1"
           />
+          {showMore && (
+            <>
+              <ProductCart
+                img={Img1}
+                img2={Img2}
+                img3={Img3}
+                type="Poster"
+                text="Poster 1"
+                price="$23.50"
+                discountPercentage="2"
+                details="Product 1 Details Product 1 Details Product 1 Details Product 1 Details Product 1 Details Product 1 Details"
+                status="Out Stock"
+                sells="20"
+                rating={3}
+                code="Pos-1"
+              />
+              <ProductCart
+                img={Img1}
+                img2={Img2}
+                img3={Img3}
+                type="Poster"
+                text="Poster 1"
+                price="$23.50"
+                discountPercentage="2"
+                details="Product 1"
+                status="Out Stock"
+                sells="20"
+                rating={3}
+                code="Pos-1"
+              />
+              <ProductCart
+                img={Img1}
+                img2={Img2}
+                img3={Img3}
+                type="Poster"
+                text="Poster 1"
+                price="$23.50"
+                discountPercentage="2"
+                details="Product 1"
+                status="Out Stock"
+                sells="20"
+                rating={3}
+                code="Pos-1"
+              />
+              <ProductCart
+                img={Img1}
+                img2={Img2}
+                img3={Img3}
+                type="Poster"
+                text="Poster 1"
+                price="$23.50"
+                discountPercentage="2"
+                details="Product 1 Details P Product 1 Details"
+                status="In Stock"
+                sells="20"
+                rating={3}
+                code="Pos-1"
+              />
+            </>
+          )}
+        </div>
+        <div className="w-full flex justify-end mt-4">
+          <button
+            onClick={() => setShowMore(!showMore)}
+            className="text-red-500 border-none"
+          >
+            {showMore ? "See Less" : "See More"}
+          </button>
         </div>
       </div>
     </div>

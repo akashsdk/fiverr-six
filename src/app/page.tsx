@@ -19,10 +19,10 @@ export default function Home() {
       <ShortIndex />
       <Categories />
       <NewArrivals />
-      <ReadyForOrder />
+      <FlashSale />
       <Poster />
       <FeaturedProducts />
-      <FlashSale />
+      <ReadyForOrder />
       <TopBrandProducts />
       <ShopByCategories />
       <FashionTrends />
